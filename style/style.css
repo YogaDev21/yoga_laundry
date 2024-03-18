@@ -1,0 +1,32 @@
+body {
+  background-color: #1c1e21 !important;
+}
+
+.table-container {
+  background-color: #212529;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin: 20px 0;
+}
+.view-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 100px 0;
+}
+.view-dashboard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  text-align: center;
+  height: 100vh;
+}
+.view-button {
+  border-radius: 150px;
+  padding: 5px 40px;
+}
+.dashboard-content {
+  max-width: calc(100vw - 700px);
+}
