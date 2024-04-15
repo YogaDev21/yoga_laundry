@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 01, 2024 at 11:54 AM
+-- Generation Time: Apr 04, 2024 at 03:14 AM
 -- Server version: 8.0.30
--- PHP Version: 8.1.10
+-- PHP Version: 8.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,7 +41,8 @@ CREATE TABLE `tb_detail_transaksi` (
 
 INSERT INTO `tb_detail_transaksi` (`id`, `id_transaksi`, `id_paket`, `qty`, `keterangan`) VALUES
 (2, 6, 11, 10, 'pencucian bantal'),
-(3, 6, 8, 5, 'pencucian selimut');
+(3, 6, 8, 5, 'pencucian selimut'),
+(4, 2, 7, 121, 'dssdsasds');
 
 -- --------------------------------------------------------
 
@@ -148,7 +149,8 @@ INSERT INTO `tb_transaksi` (`id`, `id_outlet`, `kode_invoice`, `id_member`, `tgl
 (3, 13, 'INV71350', 9, '2024-03-01 07:50:35', '2024-03-01 07:50:35', '2024-03-01 07:50:35', 5000, 0, 0, 'baru', 'dibayar', 21),
 (4, 13, 'INV80457', 10, '2024-03-01 07:50:42', '2024-03-01 07:50:42', '2024-03-01 07:50:42', 20000, 0, 0, 'baru', 'belum_dibayar', 21),
 (5, 13, 'INV37619', 11, '2024-03-01 07:50:52', '2024-03-01 07:50:52', '2024-03-01 07:50:52', 6000, 0, 0, 'baru', 'dibayar', 21),
-(6, 13, 'INV63515', 12, '2024-03-01 07:51:03', '2024-03-01 07:51:03', '2024-03-01 07:51:03', 20000, 0, 0, 'baru', 'dibayar', 21);
+(6, 13, 'INV63515', 12, '2024-03-01 07:51:03', '2024-03-01 07:51:03', '2024-03-01 07:51:03', 20000, 0, 0, 'baru', 'dibayar', 21),
+(7, 17, 'INV72800', 8, '2024-03-29 01:49:38', '2024-03-29 01:49:38', '2024-03-29 01:49:38', 123, 0, 0, 'diambil', 'dibayar', 21);
 
 -- --------------------------------------------------------
 
@@ -174,7 +176,7 @@ INSERT INTO `tb_user` (`id`, `nama`, `username`, `password`, `id_outlet`, `role`
 (22, 'owner', 'owner', '$2y$10$Y8L1GHItMdTFl1XdleMixeOyg33uAUn8YJuhipTX5ZZp5N/JCZQk.', 17, 'owner'),
 (23, 'Budi Santoso', 'Budi', '$2y$10$En1uiwnB/bgUTQsLOnWHf.EM2v5BgUyvfuENa3oaSad2oaPikSvcS', 15, 'kasir'),
 (24, 'Ratna Sari', 'Ratna', '$2y$10$ICmX8ygNbPCAqWkXrAxmLu/0atTyp1u7Zd3R73QvZ8KtlPnyVnEWW', 16, 'kasir'),
-(25, 'Ahmad Fauzi', 'Fauzi', '$2y$10$YBVAi6Zp5EpmzMEZowuLj.d.HGUUuosFWSzVe5ngV8swR8DzGJP/u', 17, 'kasir');
+(26, 'kasir', 'kasir', '$2y$10$DhtuGcTmXU5RMgU7yIrmVOR34SNuloicdR02rJVuBkmBI8hJt3Bz6', 15, 'kasir');
 
 --
 -- Indexes for dumped tables
@@ -231,7 +233,7 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_detail_transaksi`
 --
 ALTER TABLE `tb_detail_transaksi`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tb_member`
@@ -255,13 +257,13 @@ ALTER TABLE `tb_paket`
 -- AUTO_INCREMENT for table `tb_transaksi`
 --
 ALTER TABLE `tb_transaksi`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Constraints for dumped tables
