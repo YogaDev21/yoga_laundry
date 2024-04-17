@@ -46,7 +46,13 @@ $no = 1;
             <td><?= $hasil['keterangan']; ?></td>
             <td>
               <div class="action-container">
-                <a style="color:#97db84;" href="./control.php?page=update_detail_transaksi&id=<?= $hasil['id']; ?>">EDIT</a> | <a style="color:#cf5e71" href="../delete/delete_detail_transaksi.php?id=<?= $hasil['id']; ?>">DELETE
+                <?php
+                if (@$_SESSION['level_user'] === "owner") :
+                ?>
+                  <p>owner tidak dapat mengubah data ini</p>
+                <?php else : ?>
+                  <a style="color:#97db84;" href="./control.php?page=update_detail_transaksi&id_transaksi=<?= $id ?>&id=<?= $hasil['id']; ?>">EDIT</a> | <a style="color:#cf5e71" href="../delete/delete_detail_transaksi.php?id=<?= $hasil['id']; ?>">DELETE
+                  <?php endif; ?>
               </div>
             </td>
           </tr>

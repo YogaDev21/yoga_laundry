@@ -1,3 +1,15 @@
+<?php
+if (@$_SESSION['level_user'] === "owner") {
+  echo "<script>alert('Owner tidak dapat melihat halaman ini');
+  window.history.back();
+  </script>";
+}
+if (@$_SESSION['level_user'] === "kasir") {
+  echo "<script>alert('Kasir tidak dapat melihat halaman ini');
+  window.history.back();
+  </script>";
+}
+?>
 <div class="view-container">
   <h1 class="fw-bold">Data Outlet</h1>
   <a href="./control.php?page=add_outlet">

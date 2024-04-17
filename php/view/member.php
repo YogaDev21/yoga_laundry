@@ -1,3 +1,10 @@
+<?php
+if (@$_SESSION['level_user'] === "owner") {
+  echo "<script>alert('Owner tidak dapat menambah data detail transaksi');
+  window.history.back();
+  </script>";
+}
+?>
 <div class="view-container">
   <h1 class="fw-bold">Data member</h1>
   <a href="./control.php?page=add_member">

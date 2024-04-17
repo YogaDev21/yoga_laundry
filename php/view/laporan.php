@@ -1,6 +1,5 @@
 <div class="view-container">
   <h1 class="fw-bold">Data Laporan Transaksi</h1>
-
   <div class="container">
     <div class="table-container">
       <table class="table table-borderless table-hover">
