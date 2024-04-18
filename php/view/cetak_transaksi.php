@@ -23,19 +23,17 @@ $tgl = date("M d, Y", strtotime($hasilTransaksiBaru['tgl']));
 </style>
 <div class="view-container d-flex flex-column align-items-center justify-content-center vh-100">
   <div class="d-flex flex-column align-items-center">
-    <img src="../../assets/logo.png" width="250px">
+    <img src="../../assets/logoIcon.png" width="150px" class="mb-2">
     <h3 class="fw-bold">Laporan Transaksi #<?= $id ?></h3>
     <h5>Nama Kasir : <?= $hasilTransaksiBaru['nama'] ?></h4>
   </div>
   <div class="container">
     <div class="table-container">
-
       <table class="table table-borderless table-hover">
-        <thead class="table-header text-center">
+        <thead class=>
           <th>Nama</th>
           <th>QTY</th>
           <th>Harga</th>
-          <th>Keterangan</th>
         </thead>
         <?php
         $totalBayar = 0;
@@ -49,42 +47,42 @@ WHERE id_transaksi = $id;
           $id_transaksi = $hasil['id_transaksi'];
           $pajak = $hasil['pajak'];
           $diskon = $hasil['diskon'];
+          $keterangan = $hasil['keterangan'];
           $biayaTambahan = $hasil['biaya_tambahan'];
           $totalBayar += $hasil['harga'] * $hasil['qty'];
           $hasilDiskon = $totalBayar * ($diskon / 100);
           $totalHasil = $totalBayar + $biayaTambahan - $hasilDiskon + $pajak;
         ?>
-          <tr class="text-center">
+          <tr>
             <td><?= $hasil['nama_paket']; ?></td>
             <td><?= $hasil['qty']; ?></td>
-            <td><?= $hasil['harga'] * $hasil['qty']; ?></td>
-            <td><?= $hasil['keterangan']; ?></td>
-
+            <td>Rp. <?= $hasil['harga'] * $hasil['qty']; ?></td>
           </tr>
         <?php } ?>
-        <tr class="text-center">
+        <?php if ($pajak ?? 0) : ?>
+          <tr>
+            <td class="fw-bold">Pajak</td>
+            <td></td>
+            <td colspan="2">Rp. <?= $pajak ?? 0; ?></td>
+          </tr>
+        <?php endif; ?>
+        <?php if ($diskon ?? 0) : ?>
+          <tr>
+            <td class="fw-bold">diskon</td>
+            <td></td>
+            <td colspan="2"><?= $diskon ?? 0; ?>%</td>
+          </tr>
+        <?php endif; ?>
+
+        <tr>
+          <td class="fw-bold">Biaya Tambahan</td>
           <td></td>
-          <td class="fw-bold">Pajak</td>
-          <td class="fw-bold"><?= $pajak ?? 0; ?></td>
-          <td></td>
+          <td colspan="2">Rp. <?= $biayaTambahan ?? 0; ?></td>
         </tr>
-        <tr class="text-center">
-          <td></td>
-          <td class="fw-bold">diskon</td>
-          <td class="fw-bold"><?= $diskon ?? 0; ?></td>
-          <td></td>
-        </tr>
-        <tr class="text-center">
-          <td></td>
-          <td class="fw-bold">biayaTambahan</td>
-          <td class="fw-bold"><?= $biayaTambahan ?? 0; ?></td>
-          <td></td>
-        </tr>
-        <tr class="text-center">
-          <td></td>
+        <tr>
           <td class="fw-bold">Total</td>
-          <td class="fw-bold"><?= $totalHasil ?? 0; ?></td>
           <td></td>
+          <td class="fw-bold" colspan="2">Rp. <?= $totalHasil ?? 0; ?></td>
         </tr>
       </table>
     </div>

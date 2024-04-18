@@ -6,10 +6,21 @@ if (@$_SESSION['level_user'] === "owner") {
 }
 ?>
 <div class="view-container">
-  <h1 class="fw-bold">Data transaksi</h1>
-  <a href="./control.php?page=add_transaksi">
-    <button class="view-button">Input Data</button>
-  </a>
+  <div class="view-header">
+    <?php if (isset($_SESSION['status'])) {
+    ?>
+      <div class="alert alert-light" role="alert">
+        <?= $_SESSION['status'] ?>
+      </div>
+    <?php
+      unset($_SESSION['status']);
+    } ?>
+
+    <h1 class="fw-bold">Data transaksi</h1>
+    <a href="./control.php?page=add_transaksi">
+      <button class="view-button">Input Data</button>
+    </a>
+  </div>
   <div class="container">
     <div class="table-container">
 
@@ -39,7 +50,9 @@ if (@$_SESSION['level_user'] === "owner") {
             <td><?= $hasil['dibayar']; ?></td>
             <td>
               <div class="action-container">
-                <a style="color:#e67f45;" href="./control.php?page=detail_transaksi&id=<?= $hasil['id']; ?>">DETAIL</a> | <a style="color:#97db84;" href="./control.php?page=update_transaksi&id=<?= $hasil['id']; ?>">EDIT</a> | <a style="color:#cf5e71" href="../delete/delete_transaksi.php?id=<?= $hasil['id']; ?>">DELETE
+                <a style="color:#e67f45;" href="./control.php?page=detail_transaksi&id=<?= $hasil['id']; ?>">DETAIL</a> |
+                <a style="color:#97db84;" href="./control.php?page=update_transaksi&id=<?= $hasil['id']; ?>">EDIT</a> |
+                <a style="color:#cf5e71; cursor: pointer;" onclick="confirmDelete(<?= $hasil['id']; ?>)">DELETE
               </div>
 
             </td>
@@ -49,3 +62,10 @@ if (@$_SESSION['level_user'] === "owner") {
     </div>
   </div>
 </div>
+<script>
+  function confirmDelete(id) {
+    if (confirm("Apakah Anda yakin ingin menghapus data ini?")) {
+      window.location.href = "../delete/delete_transaksi.php?id=" + id;
+    }
+  }
+</script>

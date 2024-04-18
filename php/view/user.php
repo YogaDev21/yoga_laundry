@@ -11,10 +11,20 @@ if (@$_SESSION['level_user'] === "kasir") {
 }
 ?>
 <div class="view-container">
-  <h1 class="fw-bold">Data User</h1>
-  <a href="./control.php?page=add_user">
-    <button class="view-button">Input Data</button>
-  </a>
+  <div class="view-header">
+    <?php if (isset($_SESSION['status'])) {
+    ?>
+      <div class="alert alert-light" role="alert">
+        <?= $_SESSION['status'] ?>
+      </div>
+    <?php
+      unset($_SESSION['status']);
+    } ?>
+    <h1 class="fw-bold">Data User</h1>
+    <a href="./control.php?page=add_user">
+      <button class="view-button">Input Data</button>
+    </a>
+  </div>
   <div class="container">
     <div class="table-container">
       <table class="table table-borderless table-hover">
@@ -39,7 +49,8 @@ if (@$_SESSION['level_user'] === "kasir") {
             <td>
               <?php if ($hasil['nama'] !== $userLogin) : ?>
                 <div class="action-container">
-                  <a style="color:#97db84;" href="./control.php?page=update_user&id=<?= $hasil['id']; ?>">EDIT</a> | <a style="color:#cf5e71" href="../delete/delete_user.php?id=<?= $hasil['id']; ?>">DELETE
+                  <a style="color:#97db84;" href="./control.php?page=update_user&id=<?= $hasil['id']; ?>">EDIT</a> |
+                  <a style="color:#cf5e71; cursor: pointer;" onclick="confirmDelete(<?= $hasil['id']; ?>)">DELETE
                 </div>
               <?php else : ?>
                 <div class="action-container">
@@ -53,3 +64,12 @@ if (@$_SESSION['level_user'] === "kasir") {
     </div>
   </div>
 </div>
+
+
+<script>
+  function confirmDelete(id) {
+    if (confirm("Apakah Anda yakin ingin menghapus data ini?")) {
+      window.location.href = "../delete/delete_user.php?id=" + id;
+    }
+  }
+</script>

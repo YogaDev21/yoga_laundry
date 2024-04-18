@@ -11,10 +11,20 @@ if (@$_SESSION['level_user'] === "kasir") {
 }
 ?>
 <div class="view-container">
-  <h1 class="fw-bold">Data Outlet</h1>
-  <a href="./control.php?page=add_outlet">
-    <button class="view-button">Input Data</button>
-  </a>
+  <div class="view-header">
+    <?php if (isset($_SESSION['status'])) {
+    ?>
+      <div class="alert alert-light" role="alert">
+        <?= $_SESSION['status'] ?>
+      </div>
+    <?php
+      unset($_SESSION['status']);
+    } ?>
+    <h1 class="fw-bold">Data Outlet</h1>
+    <a href="./control.php?page=add_outlet">
+      <button class="view-button">Input Data</button>
+    </a>
+  </div>
   <div class="container">
     <div class="table-container">
       <table class="table table-borderless table-hover">
@@ -37,7 +47,8 @@ if (@$_SESSION['level_user'] === "kasir") {
             <td><?= $hasil['tlp']; ?></td>
             <td>
               <div class="action-container">
-                <a style="color:#97db84;" href="./control.php?page=update_outlet&id=<?= $hasil['id']; ?>">EDIT</a> | <a style="color:#cf5e71" href="../delete/delete_outlet.php?id=<?= $hasil['id']; ?>">DELETE
+                <a style="color:#97db84;" href="./control.php?page=update_outlet&id=<?= $hasil['id']; ?>">EDIT</a> |
+                <a style="color:#cf5e71; cursor: pointer;" onclick="confirmDelete(<?= $hasil['id']; ?>)">DELETE
               </div>
             </td>
           </tr>
@@ -46,3 +57,11 @@ if (@$_SESSION['level_user'] === "kasir") {
     </div>
   </div>
 </div>
+
+<script>
+  function confirmDelete(id) {
+    if (confirm("Apakah Anda yakin ingin menghapus data ini?")) {
+      window.location.href = "../delete/delete_outlet.php?id=" + id;
+    }
+  }
+</script>

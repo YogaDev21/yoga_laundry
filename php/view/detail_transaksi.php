@@ -9,10 +9,20 @@ WHERE id_transaksi = $id;
 $no = 1;
 ?>
 <div class="view-container">
-  <h1 class="fw-bold">Detail transaksi</h1>
-  <a href="./control.php?page=add_detail_transaksi&id=<?= $_GET['id']; ?>">
-    <button class="view-button">Input Data</button>
-  </a>
+  <div class="view-header">
+    <?php if (isset($_SESSION['status'])) {
+    ?>
+      <div class="alert alert-light" role="alert">
+        <?= $_SESSION['status'] ?>
+      </div>
+    <?php
+      unset($_SESSION['status']);
+    } ?>
+    <h1 class="fw-bold">Detail transaksi</h1>
+    <a href="./control.php?page=add_detail_transaksi&id=<?= $_GET['id']; ?>">
+      <button class="view-button">Input Data</button>
+    </a>
+  </div>
   <div class="container">
     <a class="fw-bold" href="./control.php?page=view_transaksi">Lihat Semua Transaksi</a>
     <div class="table-container">
@@ -42,7 +52,7 @@ $no = 1;
             <td><?= $no++ ?></td>
             <td><?= $hasil['nama_paket']; ?></td>
             <td><?= $hasil['qty']; ?></td>
-            <td><?= $hasil['harga'] * $hasil['qty']; ?></td>
+            <td>Rp. <?= $hasil['harga'] * $hasil['qty']; ?></td>
             <td><?= $hasil['keterangan']; ?></td>
             <td>
               <div class="action-container">
@@ -51,7 +61,8 @@ $no = 1;
                 ?>
                   <p>owner tidak dapat mengubah data ini</p>
                 <?php else : ?>
-                  <a style="color:#97db84;" href="./control.php?page=update_detail_transaksi&id_transaksi=<?= $id ?>&id=<?= $hasil['id']; ?>">EDIT</a> | <a style="color:#cf5e71" href="../delete/delete_detail_transaksi.php?id=<?= $hasil['id']; ?>">DELETE
+                  <a style="color:#97db84;" href="./control.php?page=update_detail_transaksi&id_transaksi=<?= $id ?>&id=<?= $hasil['id']; ?>">EDIT</a> |
+                  <a style="color:#cf5e71; cursor: pointer;" onclick="confirmDelete(<?= $hasil['id']; ?>)">DELETE
                   <?php endif; ?>
               </div>
             </td>
@@ -62,7 +73,7 @@ $no = 1;
             <td></td>
             <td></td>
             <td class="fw-bold">Pajak</td>
-            <td class="fw-bold"><?= $pajak ?? 0; ?></td>
+            <td class="fw-bold">Rp. <?= $pajak ?? 0; ?></td>
             <td></td>
             <td></td>
           </tr>
@@ -72,7 +83,7 @@ $no = 1;
             <td></td>
             <td></td>
             <td class="fw-bold">diskon</td>
-            <td class="fw-bold"><?= $diskon ?? 0; ?></td>
+            <td class="fw-bold"><?= $diskon ?? 0; ?>%</td>
             <td></td>
             <td></td>
           </tr>
@@ -81,8 +92,8 @@ $no = 1;
           <tr class="text-center">
             <td></td>
             <td></td>
-            <td class="fw-bold">biayaTambahan</td>
-            <td class="fw-bold"><?= $biayaTambahan ?? 0; ?></td>
+            <td class="fw-bold">Biaya Tambahan</td>
+            <td class="fw-bold">Rp. <?= $biayaTambahan ?? 0; ?></td>
             <td></td>
             <td></td>
           </tr>
@@ -91,7 +102,7 @@ $no = 1;
           <td></td>
           <td></td>
           <td class="fw-bold">Total Bayar</td>
-          <td class="fw-bold"><?= $totalHasil ?? 0; ?></td>
+          <td class="fw-bold">Rp. <?= $totalHasil ?? 0; ?></td>
           <td></td>
           <td>
             <?php $cekHasilCetak = mysqli_num_rows($tampil);
@@ -108,3 +119,10 @@ $no = 1;
 
   </div>
 </div>
+<script>
+  function confirmDelete(id) {
+    if (confirm("Apakah Anda yakin ingin menghapus data ini?")) {
+      window.location.href = "../delete/delete_detail_transaksi.php?id=" + id;
+    }
+  }
+</script>
