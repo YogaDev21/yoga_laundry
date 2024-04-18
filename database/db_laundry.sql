@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 04, 2024 at 03:14 AM
+-- Generation Time: Apr 18, 2024 at 12:05 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.3.3
 
@@ -40,9 +40,19 @@ CREATE TABLE `tb_detail_transaksi` (
 --
 
 INSERT INTO `tb_detail_transaksi` (`id`, `id_transaksi`, `id_paket`, `qty`, `keterangan`) VALUES
-(2, 6, 11, 10, 'pencucian bantal'),
-(3, 6, 8, 5, 'pencucian selimut'),
-(4, 2, 7, 121, 'dssdsasds');
+(14, 2, 7, 2, '2 penutup tempat tidur'),
+(15, 2, 8, 1, '1 selimut'),
+(16, 2, 9, 5, '5 kaos'),
+(17, 2, 10, 10, '10 jaket'),
+(19, 2, 11, 7, '7 bantal'),
+(20, 3, 7, 2, '2 penutup tempat tidur'),
+(21, 3, 8, 1, '1 selimut'),
+(22, 3, 9, 9, '9 kaos'),
+(23, 4, 11, 10, '10 bantal'),
+(24, 6, 10, 5, '5 jaket'),
+(25, 6, 8, 2, '2 selimut'),
+(26, 13, 9, 3, '3 kaos'),
+(27, 13, 10, 5, '5 jaket');
 
 -- --------------------------------------------------------
 
@@ -63,11 +73,11 @@ CREATE TABLE `tb_member` (
 --
 
 INSERT INTO `tb_member` (`id`, `nama`, `alamat`, `jenis_kelamin`, `tlp`) VALUES
-(8, 'Anita Putri', 'Jalan Raya Ubud No. 123, Ubud, Gianyar, Bali, Indonesia', 'P', '08123456789'),
-(9, 'Hadi Pratama', 'Jalan Sunset Beach No. 456, Kuta, Badung, Bali, Indonesia', 'L', '087654321'),
+(8, 'Anita Putri', 'Jalan Raya Ubud No. 123, Ubud, Gianyar, Bali, Indonesia', 'P', '0812345678'),
+(9, 'Hadi Pratama', 'Jalan Sunset Beach No. 456, Kuta, Badung, Bali, Indonesia', 'L', '0876543218'),
 (10, 'Siti Rahayu', 'Jalan Dewi Sri No. 789, Legian, Kuta, Bali, Indonesia', 'P', '08987654321'),
 (11, 'Rizky Maulana', 'Jalan Monkey Forest No. 321, Ubud, Gianyar, Bali, Indonesia', 'L', '082345678'),
-(12, 'Dewi Kusuma', 'Jalan Uluwatu No. 987, Jimbaran, Badung, Bali, Indonesia', 'P', '0854321098');
+(12, 'Dewi Kusuma', 'Jalan Uluwatu No. 987, Jimbaran, Badung, Bali, Indonesia', 'P', '311231323');
 
 -- --------------------------------------------------------
 
@@ -146,11 +156,10 @@ CREATE TABLE `tb_transaksi` (
 
 INSERT INTO `tb_transaksi` (`id`, `id_outlet`, `kode_invoice`, `id_member`, `tgl`, `batas_waktu`, `tgl_bayar`, `biaya_tambahan`, `diskon`, `pajak`, `status`, `dibayar`, `id_user`) VALUES
 (2, 13, 'INV98970', 8, '2024-03-01 07:50:22', '2024-03-01 07:50:22', '2024-03-01 07:50:22', 5000, 0, 0, 'baru', 'belum_dibayar', 21),
-(3, 13, 'INV71350', 9, '2024-03-01 07:50:35', '2024-03-01 07:50:35', '2024-03-01 07:50:35', 5000, 0, 0, 'baru', 'dibayar', 21),
-(4, 13, 'INV80457', 10, '2024-03-01 07:50:42', '2024-03-01 07:50:42', '2024-03-01 07:50:42', 20000, 0, 0, 'baru', 'belum_dibayar', 21),
-(5, 13, 'INV37619', 11, '2024-03-01 07:50:52', '2024-03-01 07:50:52', '2024-03-01 07:50:52', 6000, 0, 0, 'baru', 'dibayar', 21),
-(6, 13, 'INV63515', 12, '2024-03-01 07:51:03', '2024-03-01 07:51:03', '2024-03-01 07:51:03', 20000, 0, 0, 'baru', 'dibayar', 21),
-(7, 17, 'INV72800', 8, '2024-03-29 01:49:38', '2024-03-29 01:49:38', '2024-03-29 01:49:38', 123, 0, 0, 'diambil', 'dibayar', 21);
+(3, 13, 'INV71350', 9, '2024-03-01 07:50:35', '2024-03-01 07:50:35', '2024-03-01 07:50:35', 5000, 0, 0, 'proses', 'dibayar', 21),
+(4, 13, 'INV80457', 10, '2024-03-01 07:50:42', '2024-03-01 07:50:42', '2024-03-01 07:50:42', 20000, 0, 0, 'selesai', 'belum_dibayar', 21),
+(6, 13, 'INV63515', 12, '2024-03-01 07:51:03', '2024-03-01 07:51:03', '2024-03-01 07:51:03', 20000, 0, 0, 'diambil', 'dibayar', 21),
+(13, 13, 'INV94695', 11, '2024-04-18 09:20:49', '2024-04-18 09:20:49', '2024-04-18 09:20:49', 20000, 10, 2000, 'baru', 'dibayar', 21);
 
 -- --------------------------------------------------------
 
@@ -233,37 +242,37 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_detail_transaksi`
 --
 ALTER TABLE `tb_detail_transaksi`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `tb_member`
 --
 ALTER TABLE `tb_member`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `tb_outlet`
 --
 ALTER TABLE `tb_outlet`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `tb_paket`
 --
 ALTER TABLE `tb_paket`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `tb_transaksi`
 --
 ALTER TABLE `tb_transaksi`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- Constraints for dumped tables
