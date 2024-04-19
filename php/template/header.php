@@ -6,7 +6,6 @@ if (!@$_SESSION['username']) {
 }
 $title = @$_GET['page'];
 ?>
-
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 
@@ -15,6 +14,7 @@ $title = @$_GET['page'];
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../../style/style.css">
   <link rel="stylesheet" href="../../style/bootstrap.min.css">
+  <link rel="shortcut icon" href="../../assets/logoIcon.png" type="image/x-icon">
   <script src="../../javascript/bootstrap.bundle.min.js"></script>
   <style>
     * {
