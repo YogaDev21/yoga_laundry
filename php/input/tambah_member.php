@@ -1,3 +1,11 @@
+<?php
+if (@$_SESSION['level_user'] === "owner") {
+  echo "<script>alert('Owner tidak dapat menambah data detail transaksi');
+  window.history.back();
+  </script>";
+}
+?>
+
 <body class="min-vh-100 d-flex">
   <div class="container d-flex align-items-center justify-content-center">
     <div class="col-xl-5 ">
@@ -36,5 +44,4 @@
       </div>
     </div>
   </div>
-
 </body>
