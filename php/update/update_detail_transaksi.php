@@ -1,5 +1,11 @@
 <?php
+if (@$_SESSION['level_user'] === "owner") {
+  echo "<script>alert('Owner tidak dapat menambah data detail transaksi');
+  window.history.back();
+  </script>";
+}
 $id = $_GET['id'];
+$id_transaksi = $_GET['id_transaksi'];
 $tampil = mysqli_query($koneksi, "SELECT * FROM tb_detail_transaksi WHERE id='$id'");
 $hasilDetailTransaksi = mysqli_fetch_array($tampil);
 ?>
@@ -13,7 +19,7 @@ $hasilDetailTransaksi = mysqli_fetch_array($tampil);
             <div class="text-center">
               <h4 class="mt-1 mb-5 pb-1">update detail transaksi</h4>
             </div>
-            <form action="../update/proses_update_detail_transaksi.php?id=<?= $hasilDetailTransaksi['id'] ?>" method="POST">
+            <form action="../update/proses_update_detail_transaksi.php?id_transaksi=<?= $id_transaksi ?>&id=<?= $hasilDetailTransaksi['id'] ?>" method="POST">
               <div class="d-flex flex-column justify-content-between">
                 <label for="id_transaksi" class="form-label">id transaksi</label>
                 <select id="id_transaksi_list" name="id_transaksi" class="form-select">

@@ -1,11 +1,16 @@
 <?php
+if (@$_SESSION['level_user'] === "owner") {
+  echo "<script>alert('Owner tidak dapat menambah data detail transaksi');
+  window.history.back();
+  </script>";
+}
 $id = $_GET['id'];
 $tampil = mysqli_query($koneksi, "SELECT * FROM tb_transaksi WHERE id='$id'");
 $hasilTransaksi = mysqli_fetch_array($tampil);
 ?>
 
 <body class="min-vh-100 d-flex">
-  <div class="container d-flex align-items-center justify-content-center">
+  <div class="container d-flex align-items-center justify-content-center mtmb-5">
     <div class="col-xl-5 ">
       <div class="card rounded-3 text-black">
         <div class="row g-0">

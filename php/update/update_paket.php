@@ -1,4 +1,14 @@
 <?php
+if (@$_SESSION['level_user'] === "owner") {
+  echo "<script>alert('Owner tidak dapat menambah data detail transaksi');
+  window.history.back();
+  </script>";
+}
+if (@$_SESSION['level_user'] === "kasir") {
+  echo "<script>alert('Kasir tidak dapat melihat halaman ini');
+  window.history.back();
+  </script>";
+}
 $id = $_GET['id'];
 $tampil = mysqli_query($koneksi, "SELECT * FROM tb_paket WHERE id='$id'");
 $hasilPaket = mysqli_fetch_array($tampil);

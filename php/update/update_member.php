@@ -1,4 +1,9 @@
 <?php
+if (@$_SESSION['level_user'] === "owner") {
+  echo "<script>alert('Owner tidak dapat menambah data detail transaksi');
+  window.history.back();
+  </script>";
+}
 $id = $_GET['id'];
 $tampil = mysqli_query($koneksi, "SELECT * FROM tb_member WHERE id='$id'");
 $hasil = mysqli_fetch_array($tampil);
