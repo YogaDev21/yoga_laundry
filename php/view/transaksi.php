@@ -42,13 +42,13 @@ if (@$_SESSION['level_user'] === "owner") {
           $tgl_bayar = date("M d, Y", strtotime($hasil['tgl_bayar']));
         ?>
           <tr class="text-center">
-            <td><?= $no++ ?></td>
-            <td><?= $hasil['kode_invoice']; ?></td>
-            <td><?= $batas_waktu; ?></td>
-            <td><?= $tgl_bayar; ?></td>
-            <td><?= $hasil['status']; ?></td>
-            <td><?= $hasil['dibayar']; ?></td>
-            <td>
+            <td data-cell="No"><?= $no++ ?></td>
+            <td data-cell="Kode Invoice"><?= $hasil['kode_invoice']; ?></td>
+            <td data-cell="Batas Waktu"><?= $batas_waktu; ?></td>
+            <td data-cell="Tanggal Bayar"><?= $tgl_bayar; ?></td>
+            <td data-cell="Status"><?= $hasil['status']; ?></td>
+            <td data-cell="Dibayar"><?= $hasil['dibayar']; ?></td>
+            <td data-cell="Aksi">
               <div class="action-container">
                 <a style="color:#e67f45;" href="./control.php?page=detail_transaksi&id=<?= $hasil['id']; ?>">DETAIL</a> |
                 <a style="color:#97db84;" href="./control.php?page=update_transaksi&id=<?= $hasil['id']; ?>">EDIT</a> |

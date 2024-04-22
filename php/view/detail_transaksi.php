@@ -49,12 +49,12 @@ $no = 1;
           $status = $hasil['status'];
         ?>
           <tr class="text-center">
-            <td><?= $no++ ?></td>
-            <td><?= $hasil['nama_paket']; ?></td>
-            <td><?= $hasil['qty']; ?></td>
-            <td>Rp. <?= $hasil['harga'] * $hasil['qty']; ?></td>
-            <td><?= $hasil['keterangan']; ?></td>
-            <td>
+            <td data-cell="No"><?= $no++ ?></td>
+            <td data-cell="Nama Paket"><?= $hasil['nama_paket']; ?></td>
+            <td data-cell="QTY"><?= $hasil['qty']; ?></td>
+            <td data-cell="Harga">Rp. <?= $hasil['harga'] * $hasil['qty']; ?></td>
+            <td data-cell="Keterangan"><?= $hasil['keterangan']; ?></td>
+            <td data-cell="Aksi">
               <div class="action-container">
                 <?php
                 if (@$_SESSION['level_user'] === "owner") :

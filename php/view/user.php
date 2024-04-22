@@ -42,11 +42,11 @@ if (@$_SESSION['level_user'] === "kasir") {
         while ($hasil = mysqli_fetch_array($tampil)) {
         ?>
           <tr class="text-center">
-            <td><?= $no++ ?></td>
-            <td><?= $hasil['nama']; ?></td>
-            <td><?= $hasil['username']; ?></td>
-            <td><?= $hasil['role']; ?></td>
-            <td>
+            <td data-cell="No"><?= $no++ ?></td>
+            <td data-cell="Nama"><?= $hasil['nama']; ?></td>
+            <td data-cell="Username"><?= $hasil['username']; ?></td>
+            <td data-cell="Role"><?= $hasil['role']; ?></td>
+            <td data-cell="Aksi">
               <?php if ($hasil['nama'] !== $userLogin) : ?>
                 <div class="action-container">
                   <a style="color:#97db84;" href="./control.php?page=update_user&id=<?= $hasil['id']; ?>">EDIT</a> |

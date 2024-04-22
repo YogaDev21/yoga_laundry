@@ -44,7 +44,7 @@ foreach ($tables as $table) {
     <h1 class="fw-bold">Selamat Datang <?= $_SESSION['username'] ?></h1>
     <p>Project ini adalah project Pemrograman web Sekolah saya, project ini berfokus dimana pengurus laundry dapat mengatur data member yang ingin mencuci barang mereka, project ini menggunakan php, mysql dan bootstrap 5, untuk mengecek semua fiturnya, kalian dapat menekan tombol control di bawah ini</p>
     <div class="container">
-      <div class="table-container">
+      <div class="table-container table-responsive">
         <h3 class="text-left">Transaksi Terbaru</h3>
         <table class="table table-borderless table-hover">
           <thead class="table-header text-center">
@@ -66,12 +66,12 @@ foreach ($tables as $table) {
             $hasilMember = mysqli_fetch_array($tampilMember);
           ?>
             <tr class="text-center">
-              <td><?= $no++ ?></td>
-              <td><?= $hasil['kode_invoice']; ?></td>
-              <td><?= $hasilMember['nama']; ?></td>
-              <td><?= $batas_waktu; ?></td>
-              <td><?= $hasil['status']; ?></td>
-              <td>
+              <td data-cell="No"><?= $no++ ?></td>
+              <td data-cell="Kode Invoice"><?= $hasil['kode_invoice']; ?></td>
+              <td data-cell="Nama Pembeli"><?= $hasilMember['nama']; ?></td>
+              <td data-cell="Batas Pengambilan"><?= $batas_waktu; ?></td>
+              <td data-cell="Status"><?= $hasil['status']; ?></td>
+              <td data-cell="Aksi">
                 <div class="action-container">
                   <a style="color:#e67f45;" href="./control.php?page=detail_transaksi&id=<?= $hasil['id']; ?>">Detail Transaksi</a>
                 </div>

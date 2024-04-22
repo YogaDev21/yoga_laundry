@@ -9,7 +9,7 @@ $tampil = mysqli_query($koneksi, "SELECT * FROM tb_transaksi WHERE id='$id'");
 $hasilTransaksi = mysqli_fetch_array($tampil);
 ?>
 
-<body class="min-vh-100 d-flex">
+<body class="min-vh-100 d-flex flex-column gap-5">
   <div class="container d-flex align-items-center justify-content-center mtmb-5">
     <div class="col-xl-5 ">
       <div class="card rounded-3 text-black">

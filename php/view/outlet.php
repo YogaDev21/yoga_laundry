@@ -41,11 +41,11 @@ if (@$_SESSION['level_user'] === "kasir") {
         while ($hasil = mysqli_fetch_array($tampil)) {
         ?>
           <tr class="text-center">
-            <td><?= $no++ ?></td>
-            <td><?= $hasil['nama']; ?></td>
-            <td><?= $hasil['alamat']; ?></td>
-            <td><?= $hasil['tlp']; ?></td>
-            <td>
+            <td data-cell="No"><?= $no++ ?></td>
+            <td data-cell="Nama"><?= $hasil['nama']; ?></td>
+            <td data-cell="Alamat"><?= $hasil['alamat']; ?></td>
+            <td data-cell="Telp"><?= $hasil['tlp']; ?></td>
+            <td data-cell="Aksi">
               <div class="action-container">
                 <a style="color:#97db84;" href="./control.php?page=update_outlet&id=<?= $hasil['id']; ?>">EDIT</a> |
                 <a style="color:#cf5e71; cursor: pointer;" onclick="confirmDelete(<?= $hasil['id']; ?>)">DELETE

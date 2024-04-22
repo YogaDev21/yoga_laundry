@@ -11,7 +11,7 @@ if (@$_SESSION['level_user'] === "kasir") {
 }
 ?>
 
-<body class="min-vh-100 d-flex">
+<body class="min-vh-100 d-flex flex-column gap-5">
   <div class="container d-flex align-items-center justify-content-center">
     <div class="col-xl-5 ">
       <div class="card rounded-3 text-black">
