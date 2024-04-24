@@ -1,3 +1,27 @@
+<style>
+  @media (max-width: 993px) {
+    tbody tr {
+      border-bottom: 1px solid white;
+      margin: 0.5rem 0;
+    }
+
+    th {
+      display: none;
+    }
+
+    td {
+      display: flex;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+    }
+
+    td::before {
+      content: attr(data-cell) ": ";
+      font-weight: 700;
+      text-transform: capitalize;
+    }
+  }
+</style>
 <div class="view-container">
   <h1 class="fw-bold">Data Laporan Transaksi</h1>
   <div class="container">

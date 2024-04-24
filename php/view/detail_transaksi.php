@@ -8,6 +8,34 @@ WHERE id_transaksi = $id;
 ");
 $no = 1;
 ?>
+<style>
+  @media (max-width: 993px) {
+    tbody tr {
+      border-bottom: 1px solid white;
+      margin: 0.5rem 0;
+    }
+
+    th {
+      display: none;
+    }
+
+    td {
+      display: flex;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+    }
+
+    td::before {
+      content: attr(data-cell) ": ";
+      font-weight: 700;
+      text-transform: capitalize;
+    }
+
+    .hdwsm {
+      display: none;
+    }
+  }
+</style>
 <div class="view-container">
   <div class="view-header">
     <?php if (isset($_SESSION['status'])) {
@@ -70,41 +98,41 @@ $no = 1;
         <?php } ?>
         <?php if ($pajak ?? 0) : ?>
           <tr class="text-center">
-            <td></td>
-            <td></td>
-            <td class="fw-bold">Pajak</td>
-            <td class="fw-bold">Rp. <?= $pajak ?? 0; ?></td>
-            <td></td>
-            <td></td>
+            <td class="hdwsm"></td>
+            <td class="hdwsm"></td>
+            <td class="fw-bold hdwsm">Pajak</td>
+            <td class="fw-bold" data-cell="Pajak">Rp. <?= $pajak ?? 0; ?></td>
+            <td class="hdwsm"></td>
+            <td class="hdwsm"></td>
           </tr>
         <?php endif; ?>
         <?php if ($diskon ?? 0) : ?>
           <tr class="text-center">
-            <td></td>
-            <td></td>
-            <td class="fw-bold">diskon</td>
-            <td class="fw-bold"><?= $diskon ?? 0; ?>%</td>
-            <td></td>
-            <td></td>
+            <td class="hdwsm"></td>
+            <td class="hdwsm"></td>
+            <td class="fw-bold hdwsm">diskon</td>
+            <td class="fw-bold" data-cell="Diskon"><?= $diskon ?? 0; ?>%</td>
+            <td class="hdwsm"></td>
+            <td class="hdwsm"></td>
           </tr>
         <?php endif; ?>
         <?php if ($biayaTambahan ?? 0) : ?>
           <tr class="text-center">
-            <td></td>
-            <td></td>
-            <td class="fw-bold">Biaya Tambahan</td>
-            <td class="fw-bold">Rp. <?= $biayaTambahan ?? 0; ?></td>
-            <td></td>
-            <td></td>
+            <td class="hdwsm"></td>
+            <td class="hdwsm"></td>
+            <td class="fw-bold hdwsm">Biaya Tambahan</td>
+            <td class="fw-bold" data-cell="Biaya Tambahan">Rp. <?= $biayaTambahan ?? 0; ?></td>
+            <td class="hdwsm"></td>
+            <td class="hdwsm"></td>
           </tr>
         <?php endif; ?>
         <tr class="text-center">
-          <td></td>
-          <td></td>
-          <td class="fw-bold">Total Bayar</td>
-          <td class="fw-bold">Rp. <?= $totalHasil ?? 0; ?></td>
-          <td></td>
-          <td>
+          <td class="hdwsm"></td>
+          <td class="hdwsm"></td>
+          <td class="fw-bold hdwsm">Total Bayar</td>
+          <td class="fw-bold" data-cell="Total Hasil">Rp. <?= $totalHasil ?? 0; ?></td>
+          <td class="hdwsm"></td>
+          <td data-cell="Aksi">
             <?php $cekHasilCetak = mysqli_num_rows($tampil);
             if ($cekHasilCetak >= 1) :
             ?>

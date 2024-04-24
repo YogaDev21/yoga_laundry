@@ -7,6 +7,30 @@ foreach ($tables as $table) {
   $results[$table] = $row[0];
 }
 ?>
+<style>
+  @media (max-width: 993px) {
+    tbody tr {
+      border-bottom: 1px solid white;
+      margin: 0.5rem 0;
+    }
+
+    th {
+      display: none;
+    }
+
+    td {
+      display: flex;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+    }
+
+    td::before {
+      content: attr(data-cell) ": ";
+      font-weight: 700;
+      text-transform: capitalize;
+    }
+  }
+</style>
 <div class="d-flex flex-column container view-dashboard">
   <div class="pt-5 row">
     <div class="col-sm-3 mb-3 mb-sm-0">
