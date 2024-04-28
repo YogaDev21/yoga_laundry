@@ -33,7 +33,7 @@ CREATE TABLE `tb_detail_transaksi` (
   `id_paket` int NOT NULL,
   `qty` double NOT NULL,
   `keterangan` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Dumping data for table `tb_detail_transaksi`
@@ -66,7 +66,7 @@ CREATE TABLE `tb_member` (
   `alamat` text NOT NULL,
   `jenis_kelamin` enum('L','P') NOT NULL,
   `tlp` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Dumping data for table `tb_member`
@@ -90,7 +90,7 @@ CREATE TABLE `tb_outlet` (
   `nama` varchar(100) NOT NULL,
   `alamat` text NOT NULL,
   `tlp` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Dumping data for table `tb_outlet`
@@ -115,7 +115,7 @@ CREATE TABLE `tb_paket` (
   `jenis` enum('kiloan','selimut','bed_cover','kaos','lain') NOT NULL,
   `nama_paket` varchar(100) NOT NULL,
   `harga` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Dumping data for table `tb_paket`
@@ -148,7 +148,7 @@ CREATE TABLE `tb_transaksi` (
   `status` enum('baru','proses','selesai','diambil') NOT NULL,
   `dibayar` enum('dibayar','belum_dibayar') NOT NULL,
   `id_user` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Dumping data for table `tb_transaksi`
@@ -174,7 +174,7 @@ CREATE TABLE `tb_user` (
   `password` text NOT NULL,
   `id_outlet` int NOT NULL,
   `role` enum('admin','kasir','owner') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Dumping data for table `tb_user`

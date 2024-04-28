@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html data-bs-theme="dark" lang="en">
 
 <head>
@@ -22,12 +22,12 @@
                     <form action="login_proses.php" method="POST">
                         <label for="formGroupExampleInput" class="form-label">Username</label>
                         <div class="form-outline mb-4">
-                            <input type="text" name="username" class="form-control" id="formGroupExampleInput">
+                            <input type="text" name="username" class="form-control" id="formGroupExampleInput" placeholder="username">
                         </div>
 
                         <label for="formGroupExampleInput2" class="form-label">Password</label>
                         <div class="form-outline mb-4">
-                            <input type="password" name="password" class="form-control" id="formGroupExampleInput2">
+                            <input type="password" name="password" class="form-control" id="formGroupExampleInput2" placeholder="password">
                         </div>
                         <div class=" pt-1 pb-1">
                             <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 w-100" type="submit">Log

@@ -23,11 +23,11 @@ if (@$_SESSION['level_user'] === "kasir") {
             <form action="../input/proses_tambah_paket.php" method="POST">
               <label for="formGroupExampleInput" class="form-label">Nama Paket</label>
               <div class="form-outline mb-4">
-                <input type="text" name="nama_paket" class="form-control" id="formGroupExampleInput">
+                <input type="text" name="nama_paket" class="form-control" id="formGroupExampleInput" placeholder="nama paket">
               </div>
-              <label for="formGroupExampleInput" class="form-label">harga</label>
+              <label for="formGroupExampleInput" class="form-label">Harga</label>
               <div class="form-outline mb-4">
-                <input type="text" name="harga" class="form-control" id="formGroupExampleInput">
+                <input type="text" name="harga" class="form-control" id="formGroupExampleInput" placeholder="harga">
               </div>
               <div class="d-flex justify-content-between">
                 <div class="outlet-input">

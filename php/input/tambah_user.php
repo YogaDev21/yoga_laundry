@@ -21,17 +21,17 @@ if (@$_SESSION['level_user'] === "kasir") {
               <h4 class="mt-1 mb-5 pb-1">Register user</h4>
             </div>
             <form action="../input/proses_register_user.php" method="POST">
-              <label for="formGroupExampleInput" class="form-label">nama lengkap</label>
+              <label for="formGroupExampleInput" class="form-label">Nama Lengkap</label>
               <div class="form-outline mb-4">
-                <input type="text" name="nama_lengkap" class="form-control" id="formGroupExampleInput">
+                <input type="text" name="nama_lengkap" class="form-control" id="formGroupExampleInput" placeholder="nama lengkap">
               </div>
-              <label for="formGroupExampleInput" class="form-label">username</label>
+              <label for="formGroupExampleInput" class="form-label">Username</label>
               <div class="form-outline mb-4">
-                <input type="text" name="username" class="form-control" id="formGroupExampleInput">
+                <input type="text" name="username" class="form-control" id="formGroupExampleInput" placeholder="username">
               </div>
-              <label for="formGroupExampleInput2" class="form-label">password</label>
+              <label for="formGroupExampleInput2" class="form-label">Password</label>
               <div class="form-outline mb-4">
-                <input type="password" name="password" class="form-control" id="formGroupExampleInput2">
+                <input type="password" name="password" class="form-control" id="formGroupExampleInput2" placeholder="password">
               </div>
               <div class="d-flex justify-content-between gap-5">
                 <div class="outlet-input d-flex flex-column ">

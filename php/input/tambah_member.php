@@ -16,20 +16,20 @@ if (@$_SESSION['level_user'] === "owner") {
               <h4 class="mt-1 mb-5 pb-1">Tambah Member</h4>
             </div>
             <form action="../input/proses_tambah_member.php" method="POST">
-              <label for="formGroupExampleInput" class="form-label">nama</label>
+              <label for="formGroupExampleInput" class="form-label">Nama</label>
               <div class="form-outline mb-4">
-                <input type="text" name="nama" class="form-control" id="formGroupExampleInput">
+                <input type="text" name="nama" class="form-control" id="formGroupExampleInput" placeholder="nama">
               </div>
-              <label for="formGroupExampleInput" class="form-label">alamat</label>
+              <label for="formGroupExampleInput" class="form-label">Alamat</label>
               <div class="form-outline mb-4">
-                <input type="text" name="alamat" class="form-control" id="formGroupExampleInput">
+                <input type="text" name="alamat" class="form-control" id="formGroupExampleInput" placeholder="alamat">
               </div>
-              <label for="formGroupExampleInput2" class="form-label">telp</label>
+              <label for="formGroupExampleInput2" class="form-label">Telp</label>
               <div class="form-outline mb-4">
-                <input type="text" name="tlp" class="form-control" id="formGroupExampleInput2">
+                <input type="text" name="tlp" class="form-control" id="formGroupExampleInput2" placeholder="telp">
               </div>
               <div>
-                <label for="jenis_kelamin" class="form-label">jenis_kelamin</label>
+                <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
                 <select name="jenis_kelamin" id="jenis_kelamin" class="form-select">
                   <option value="L">Laki laki</option>
                   <option value="P">Perempuan</option>

@@ -17,7 +17,7 @@ if (@$_SESSION['level_user'] === "owner") {
             </div>
             <form action="../input/proses_tambah_transaksi.php" method="POST">
               <div class="d-flex flex-column justify-content-between">
-                <label for="id_member" class="form-label">id member</label>
+                <label for="id_member" class="form-label">Id Member</label>
                 <input type="text" name="id_member" id="id_member" list="id_member_list" class="form-select">
                 <datalist id="id_member_list">
                   <?php
@@ -31,15 +31,15 @@ if (@$_SESSION['level_user'] === "owner") {
                 </datalist>
               </div>
               <div class="d-flex flex-column justify-content-between">
-                <label for="dibayar" class="form-label">dibayar</label>
+                <label for="dibayar" class="form-label">Dibayar</label>
                 <select name="dibayar" id="dibayar" class="form-select">
                   <option value="belum_dibayar">belum_dibayar</option>
                   <option value="dibayar">dibayar</option>
                 </select>
               </div>
-              <label for="formGroupExampleInput" class="form-label">biaya_tambahan</label>
+              <label for="formGroupExampleInput" class="form-label">Biaya Tambahan</label>
               <div class="form-outline mb-4">
-                <input type="text" name="biaya_tambahan" class="form-control" id="formGroupExampleInput">
+                <input type="text" name="biaya_tambahan" class="form-control" id="formGroupExampleInput" placeholder="biaya_tambahan">
               </div>
               <div class=" pt-1 pb-1">
                 <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 w-100" type="submit">Tambah</button>

@@ -21,17 +21,17 @@ if (@$_SESSION['level_user'] === "kasir") {
               <h4 class="mt-1 mb-5 pb-1">Tambah Data Outlet</h4>
             </div>
             <form action="../input/proses_tambah_outlet.php" method="POST">
-              <label for="nama_outlet" class="form-label">nama outlet</label>
+              <label for="nama_outlet" class="form-label">Nama Outlet</label>
               <div class="form-outline mb-4">
-                <input type="text" name="nama_outlet" class="form-control" id="nama_outlet">
+                <input type="text" name="nama_outlet" class="form-control" id="nama_outlet" placeholder="nama outlet">
               </div>
-              <label for="alamat" class="form-label">alamat</label>
+              <label for="alamat" class="form-label">Alamat</label>
               <div class="form-outline mb-4">
-                <input type="text" name="alamat" class="form-control" id="alamat">
+                <input type="text" name="alamat" class="form-control" id="alamat" placeholder="alamat">
               </div>
               <label for="tlp" class="form-label">No Telp</label>
               <div class="form-outline mb-4">
-                <input type="text" name="tlp" class="form-control" id="tlp">
+                <input type="text" name="tlp" class="form-control" id="tlp" placeholder="tlp">
               </div>
               <div class=" pt-1 pb-1">
                 <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 w-100" type="submit">Register</button>

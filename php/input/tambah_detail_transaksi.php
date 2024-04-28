@@ -17,7 +17,7 @@ if (@$_SESSION['level_user'] === "owner") {
             </div>
             <form action="../input/proses_tambah_detail_transaksi.php?id=<?= $_GET['id'] ?>" method="POST">
               <div class="d-flex flex-column justify-content-between">
-                <label for="id_transaksi" class="form-label">id transaksi</label>
+                <label for="id_transaksi" class="form-label">Id Transaksi</label>
                 <select id="id_transaksi" name="id_transaksi" class="form-select">
                   <?php
                   $query = mysqli_query($koneksi, "SELECT * FROM tb_transaksi");
@@ -32,7 +32,7 @@ if (@$_SESSION['level_user'] === "owner") {
                 </select>
               </div>
               <div class="d-flex flex-column justify-content-between">
-                <label for="id_paket" class="form-label">id paket</label>
+                <label for="id_paket" class="form-label">Id Paket</label>
                 <select id="id_paket" name="id_paket" class="form-select">
                   <?php
                   $query = mysqli_query($koneksi, "SELECT * FROM tb_paket");
@@ -44,13 +44,13 @@ if (@$_SESSION['level_user'] === "owner") {
                   ?>
                 </select>
               </div>
-              <label for="formGroupExampleInput" class="form-label">qty</label>
+              <label for="formGroupExampleInput" class="form-label">QTY</label>
               <div class="form-outline mb-4">
-                <input type="text" name="qty" class="form-control" id="formGroupExampleInput">
+                <input type="text" name="qty" class="form-control" id="formGroupExampleInput" placeholder="qty">
               </div>
-              <label for="formGroupExampleInput" class="form-label">keterangan</label>
+              <label for="formGroupExampleInput" class="form-label">Keterangan</label>
               <div class="form-outline mb-4">
-                <input type="text" name="keterangan" class="form-control" id="formGroupExampleInput">
+                <input type="text" name="keterangan" class="form-control" id="formGroupExampleInput" placeholder="keterangan">
               </div>
               <div class=" pt-1 pb-1">
                 <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 w-100" type="submit">Tambah</button>
